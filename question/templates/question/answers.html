@@ -1,0 +1,45 @@
+{% block content %}
+{% load static %}
+{% for answer in answers %}
+	<div class="question answer">
+		
+		<div class="bg-warning alert">
+		<div class="row">
+	    	<div class="col">
+	    		<img class="avatar" src="{{ answer.author.image_path }}" width=60 height=60 align=”left” alt="USER IMAGE" > 
+	    		<a href="{% url 'user_detail' pk=answer.author.pk %}"><strong>{{ answer.author }}</strong></a>
+	    	</div>
+	    	<div class="col-3">
+		<ul>
+			{% if answer.votes.likes.count == 0 %}
+				{% if user.pk == answer.question.author.pk and post.is_active%}
+			    	<div data-id="{{ answer.pk }}" data-type="comment" data-action="like" title="Like">
+			    		<div class="for-remove">
+			        	<h1><span class="btn btn-success">mark true</span></h1>
+			        	</div>
+						<div class="for-show-{{ answer.pk }}" style="display:none" >
+							<h4><span class="badge badge-success">Correct</span></h4>
+						</div>
+					</div>
+
+				{% endif %}
+			{% else %}
+						<div class="for-show-{{ answer.pk }} like-bar" >
+							<h4><span class="badge badge-success">Correct</span></h4>
+						</div>
+			{% endif %}
+		</ul>
+
+			</div>
+		</div>
+		</div>
+
+		<p>{{ answer.text|linebreaksbr  }}</p>
+		<div class="date">
+			<p>Answered: {{ answer.created_date }}</p>
+		</div>
+
+		{% csrf_token %}
+	</div>      
+{% endfor %}
+{% endblock %}

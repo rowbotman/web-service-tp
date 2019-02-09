@@ -1,0 +1,22 @@
+{% extends 'question/base.html'%}
+{% block content %}
+{% include 'question/pagination.html' %}
+{% for answer in objects %}
+<div class="media mb-4">
+    <div>
+        <img class="mr-3" src="{{ answer.get_user.avatar.url }}" width="75" height="75" alt="Generic placeholder image">
+        <div class="rating mt-2 mr-3">
+            <button type="button" class="btn btn-block btn-outline-dark" disabled>{{ answer.rating }}</button>
+            <div class="mt-1">
+                <button type="button" class="btn btn-primary brown">+</button>
+                <button type="button" class="btn btn-primary brown">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="media-body">
+        <p>{{ answer.text }}</p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+{% include 'question/pagination.html' %}

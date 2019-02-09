@@ -1,0 +1,6 @@
+<div class="nav-item">
+    <div>
+        <a href="{% url 'registration/login' %}?redirect_to={{ request.get_full_path|urlencode }}">login</a>
+        <a class="ml-3" href="{% url 'signup' %}">register</a>
+    </div>
+</div>

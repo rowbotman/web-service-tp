@@ -1,0 +1,14 @@
+{% extends 'question/base.html' %}
+{% load static %}
+
+{% block registered_userpanel %}
+{% include 'registration/registered_panel.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>New Question</h1>
+<form method="POST" novalidate>
+    {% include 'registration/form.html' %}
+    <button type="submit" class="btn btn-success"> <b>Ask</b> </button>
+</form>
+{% endblock %}

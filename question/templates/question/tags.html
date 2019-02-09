@@ -1,0 +1,9 @@
+{% extends 'question/base.html' %}
+{% load static %}
+{% block content %}
+<div class="sort font-weight-bold mb-4">
+    <h2>Tag: {{ tag }}</h2>
+</div>
+{% include 'question/index.html' %}
+
+{% endblock %}

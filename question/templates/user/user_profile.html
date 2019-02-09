@@ -1,0 +1,24 @@
+{% extends 'question/base.html' %}
+{% load static %}
+
+{% block registration/registered_userpanel %}
+{% include 'registration/registered_panel.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+        <div class="col-4">
+      <!-- <div class="question-info"> -->
+          <img class="avatar" src="{{ profile.image_path }}"  width="120" height="120" alt="avatar" class ="img-circle img-responsive">
+      </div>
+      <div class="col-8">
+          <div class="like-buttons">
+            <h1>{{ profile.username }}</h1>
+          </div>
+      </div>
+</div>
+<div clas="page-header question-header">
+   <h2>Questions</h2>
+</div>
+{% include 'question/index.html'%}
+{% endblock %}

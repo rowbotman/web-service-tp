@@ -1,0 +1,34 @@
+{% load widget_tweaks %}
+
+{% csrf_token %}
+{% for field in form.hidden_fields %}
+    {{ field }}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+    <div class="form-group">
+        {{ field.label_tag }}
+
+        {% if field.errors %}
+            {% if field|field_type == "filefield" %}
+                {% render_field field class="form-control-file is-invalid" %}
+            {% else %}
+                {% render_field field class="form-control is-invalid" %}
+            {% endif %}
+            {% for error in field.errors %}
+                <div class="invalid-feedback">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% else %}
+            {% if field|field_type == "filefield" %}
+                {% render_field field class="form-control-file" %}
+            {% else %}
+                {% render_field field class="form-control" %}
+            {% endif %}
+        {% endif %}
+        {% if field.help_text %}
+            {{ field.help_text }}
+        {% endif %}
+    </div>
+{% endfor %}

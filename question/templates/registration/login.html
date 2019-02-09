@@ -1,0 +1,16 @@
+{% extends 'question/base.html' %}
+{% load widget_tweaks %}
+{% block registered_userpanel %}
+{% include 'registration/unregistered_panel.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
+<form method="POST" novalidate>{% csrf_token %}
+    {% include 'registration/form.html' %}
+    <button class="brown gr-yell btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
+<div class="mt-4">
+    <a href="{% url 'signup' %}">Create new account</a>
+</div>
+{% endblock %}

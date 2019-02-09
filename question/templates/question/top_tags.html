@@ -1,0 +1,17 @@
+{% load filters %}
+{% block tags %}
+  <div class="right-block">
+    <ul class="list-group tags-list">
+      <li class="list-group-item list-group-item-primary tags-list-item users-list-heading color-primary-3">
+        Most Popular Tags
+      </li>
+      {% for tag in base.top_tags %}
+        <li class="list-group-item tags-list-item">
+          <a href="{% url 'question:tag-view' pk=tag.id %}" class="color-primary-3">
+            {{ tag.title | bootstrap_truncate:20 }} ({{ tag.n_posts }})
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

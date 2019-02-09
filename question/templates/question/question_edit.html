@@ -1,0 +1,27 @@
+{% extends 'question/base.html' %}
+{% load static %}
+
+{% block registered_userpanel %}
+{% include 'registration/registered_panel.html' %}
+{% endblock %}
+
+{% block content %}
+
+
+  <form enctype="multipart/form-data" method="POST" novalidate>{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Tags</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tags">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Question text</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+  </div>
+  
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+{% endblock %}

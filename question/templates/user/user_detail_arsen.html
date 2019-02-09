@@ -1,0 +1,93 @@
+{% extends 'question/base.html' %}
+
+{% block content %}
+  <div class="user-profile">
+    <div class="row">
+      <div class="col-4">
+        <img class="user-profile__avatar" src="/{{ user.image_path }}">
+      </div>
+      <div class="col-8">
+        <h1> {{ user.username }}</h1>
+        <div class="row">
+          <div class="col-6">
+            <h4> {{ user.first_name }} {{ user.last_name }}</h4>
+            <h4> Rating: {{ user.rating }}</h4>
+            <a href="mailto:{{ user.email }}" class=" btn btn-block btn-info">
+              Contact
+            </a>
+
+          </div>
+          <div class="col-6">
+            <h4> Joined {{ user.date_joined|date:'d-m-y H:i' }}</h4>
+            <h4> Last time online: {% if user.last_login %} {{ user.last_login }} {% else %} never {% endif %}</h4>
+            <a href="{% url 'question:profile-edit-view' pk=user.pk %}" class=" btn btn-block btn-info">
+              Edit profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        {% if posts %}
+          <h4 class="user-profile__questions-headline">Known for these amazing questions</h4>
+        {% else %}
+          <h4 class="user-profile__questions-headline">They don't like asking questions</h4>
+        {% endif %}
+        {% for post in posts %}
+          <div class="row">
+            <div class="col-8">
+              <h4 class="user-profile__question">
+                <a href="{% url 'question:question-view' pk=question.pk %}">
+                  {{ post.title }}
+                </a>
+              </h4>
+            </div>
+            <div class="col-1">
+              <h4>
+                ({{ post.rating }})
+              </h4>
+            </div>
+            <div class="col-3">
+              <h4>
+                {{ post.create_date|date:'d-m-y H:i' }}
+              </h4>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        {% if answers %}
+          <h4 class="user-profile__questions-headline">Known for these amazing answers</h4>
+        {% else %}
+          <h4 class="user-profile__questions-headline">Some say they have all the answers, but just don't share.</h4>
+        {% endif %}
+        {% for answer in answers %}
+          <div class="row">
+            <div class="col-8">
+              <h4 class="user-profile__question">
+                <a href="{% url 'question:question-view' pk=answer.question.pk %}#answer_{{ answer.pk }}">
+                  {{ answer.question.title }}
+                </a>
+              </h4>
+            </div>
+            <div class="col-1">
+              <h4>
+                ({{ answer.rating }})
+              </h4>
+            </div>
+            <div class="col-3">
+              <h4>
+                {{ answer.create_date|date:'d-m-y H:i' }}
+              </h4>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% block content %}
+  {% for post in posts %}
+    <div class="bg-light question-container">
+      <h1><a href="{% url 'question_detail' pk=post.id %}">{{ post.title }}</a></h1>
+      <p>{{ post.text|linebreaksbr|truncatechars:200  }}</p>
+
+      <div class="users-list-heading .tag-headline">
+      <strong>Tags:</strong>
+        {% for tag in post.tags.all %}
+           <a href="{{ tag.get_absolute_url }}" class="badge badge-pill  badge-warning">{{ tag.title }}</a>
+        {% endfor %}
+      </div>
+     
+      <div class="row">
+        <div class="col-4">
+        <div class="user-info user-detail">
+          <div class="date">
+            <p>Asked: {{ post.created_date }}</p>
+          </div>
+          <img class="avatar" src="{{ post.author.image_path }}" width="75" height="75" alt="Generic placeholder image">
+          <a href="{% url 'user_detail' pk=post.author.pk %}">{{ post.author.username }}</a>
+        </div>
+      </div>
+      <div class="col-8">
+        {% csrf_token %}
+        <div class="like-buttons">
+          <div data-id="{{ post.pk }}" data-type="article" data-action="like" title="Like">
+            <h1><span class="btn btn-outline-success">Like</span></h1>
+          </div>
+            <h1><span data-count="like"  class="like-bar badge badge-secondary">{{ post.rating }}</span></h1>
+          <div data-id="{{ post.pk }}" data-type="article" data-action="dislike" title="Dislike">
+            <span class="btn btn-outline-danger">Dislike</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+    </div>
+  {% endfor %}
+{% endblock %}

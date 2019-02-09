@@ -1,0 +1,303 @@
+/* Sticky footer styles
+hello Andrey!
+-------------------------------------------------- */
+@font-face {
+  font-family: iconic-sm;
+  src: url('../fonts/open-iconic.eot');
+}
+
+h1 a {
+  color: #F50541;
+}
+
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+
+.question-container {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto; 
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.question{
+  margin: 10px;
+ /* outline: 2px solid #000; Чёрная рамка */
+ /* border: 3px solid #000;  Белая рамка */
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.question-header {
+  margin: 30px;
+}
+
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+
+
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+/*My styles*/
+.right-blocks-wrapper {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.right-block {
+  margin-bottom: 10px;
+}
+
+.tags-list-item, .users-list-item{
+
+}
+
+.users-list-heading {
+  font-weight: bold;
+}
+
+.question-item{
+  position: relative;
+  border-radius:15px;
+  padding:15px;
+  margin:10px auto;
+}
+
+.answer-item{
+  position: relative;
+  border-radius:15px;
+  padding:10px;
+  margin:10px 0 10px 50px;
+}
+
+.avatar {
+  /*width:100%;*/
+  border-radius:15px;
+}
+
+.question-author {
+  margin:10px auto;
+  text-align:center;
+}
+
+.question-datetime {
+  position: absolute;
+  bottom:0;
+  right:10px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.LoginButton {
+  width: 50px;
+  padding: 10px;
+
+  font-weight: bold;
+  font-size: 100%;
+  background: #303030;
+  color: #2E8B57;
+  border: 1px solid #2E8B57;
+  border-radius: 10px;
+  -moz-box-shadow:: 6px 6px 5px #999;
+  -webkit-box-shadow:: 6px 6px 5px #999;
+  box-shadow:: 6px 6px 5px #999;
+}
+.LoginButton:hover {
+color: #FFFFFF;
+background: #2E8B57 ;
+border: 1px solid #2E8B57;
+}
+
+.made-by {
+  position: absolute;
+  right: 30px ;
+}
+
+.save-button {
+  width: 50px;
+  padding: 10px;
+}
+
+.answer {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto; 
+  background-color: #4fbed9ad;
+}
+
+.info {
+    margin-left: 320px;
+}
+
+.user-info {
+  box-sizing: border-box;
+  padding: 12px 9px 9px 13px;
+  width: 300px;
+  color: #6a737c;
+}
+
+.user-info, .user-details {
+  margin-right: 0px;
+  margin-left: 0px;
+  margin: 15px;
+  border-radius: 11px;
+  background-color: #E1ECF4;
+}
+
+.like-buttons {
+  text-align: right;
+  margin-top: 17  px;
+}
+
+.like-bar {
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.header-link {
+  text-align: center;
+  font-weight: bold;
+  font-size: 220%;
+  color: #2B2B78;
+}
+
+.wrapper {
+  display: table;
+  width: 100%;
+}
+.box {
+  display: table-cell;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.glyphicon {
+
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+.bs-glyphicons .glyphicon {
+
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 24px;
+
+}
+.bs-glyphicons li {
+
+    font-size: 12px;
+
+}
+
+.bs-glyphicons-list {
+    list-style: none;
+}
+
+.correct-button {
+  text-align: right;
+}
+
+.correct-answer {
+  display: none;
+}
+
+.answers-head, {
+  background-color: #FF8900;
+}
+
+/*.like-buttons {
+
+}*/
+/*
+.question-title {
+  color: #212529;
+}
+*/
